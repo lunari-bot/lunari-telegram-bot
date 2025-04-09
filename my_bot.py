@@ -7,11 +7,11 @@ from telegram.ext import (
     MessageHandler, filters, ConversationHandler
 )
 from apscheduler.schedulers.background import BackgroundScheduler
-import openai
 import traceback
 import os
+from openai import OpenAI
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 TOKEN = os.getenv("TELEGRAM_TOKEN")
 
 logging.basicConfig(level=logging.INFO)
